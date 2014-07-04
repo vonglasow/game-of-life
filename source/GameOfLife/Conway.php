@@ -16,25 +16,38 @@ class Conway
 
     public function initEmptyWorld()
     {
+        $this->world = array();
+
         for ($i=0; $i < $this->x; $i++) {
             for ($j=0; $j < $this->y; $j++) {
                 $this->world[$i][$j] = static::DEAD;
             }
         }
 
-        $this->world[3][3] = static::ALIVE;
-        $this->world[3][4] = static::ALIVE;
-        $this->world[3][5] = static::ALIVE;
+        return $this;
+    }
+
+    public function setWorld($world)
+    {
+        $this->world = $world;
+        return $this;
+    }
+
+    public function getWorld()
+    {
+        return $this->world;
     }
 
     public function setX($x)
     {
         $this->x = $x;
+        return $this;
     }
 
     public function setY($y)
     {
         $this->y = $y;
+        return $this;
     }
 
     public function initRandomWorld()
@@ -58,6 +71,8 @@ class Conway
                 $this->world[$i][$j] = $this->isDeadOrAlive($i, $j);
             }
         }
+
+        return $this;
     }
 
     public function isCellInWorld($i, $j)
