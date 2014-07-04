@@ -1,8 +1,9 @@
 <?php
 
-require_once dirname(__DIR__) . '/vendor/autoload.php';
+namespace GameOfLife;
+use Hoa;
 
-class GameOfLife
+class Conway
 {
     const DEAD  = 0;
     const ALIVE = 1;
@@ -68,36 +69,38 @@ class GameOfLife
     {
         $cellAlives = 0;
 
+        $currentCellAlive = $this->world[$i][$j] === static::ALIVE;
+
         if ($this->isCellInWorld($i+1, $j+1) && $this->world[$i+1][$j+1] === static::ALIVE) {
-            $cellAlives++;
+            if ($currentCellAlive) $cellAlives++;
         }
 
         if ($this->isCellInWorld($i, $j+1) && $this->world[$i][$j+1] === static::ALIVE) {
-            $cellAlives++;
+            if ($currentCellAlive) $cellAlives++;
         }
 
         if ($this->isCellInWorld($i+1, $j) && $this->world[$i+1][$j] === static::ALIVE) {
-            $cellAlives++;
+            if ($currentCellAlive) $cellAlives++;
         }
 
         if ($this->isCellInWorld($i+1, $j-1) && $this->world[$i+1][$j-1] === static::ALIVE) {
-            $cellAlives++;
+            if ($currentCellAlive) $cellAlives++;
         }
 
         if ($this->isCellInWorld($i-1, $j+1) && $this->world[$i-1][$j+1] === static::ALIVE) {
-            $cellAlives++;
+            if ($currentCellAlive) $cellAlives++;
         }
 
         if ($this->isCellInWorld($i-1, $j-1) && $this->world[$i-1][$j-1] === static::ALIVE) {
-            $cellAlives++;
+            if ($currentCellAlive) $cellAlives++;
         }
 
         if ($this->isCellInWorld($i, $j-1) && $this->world[$i][$j-1] === static::ALIVE) {
-            $cellAlives++;
+            if ($currentCellAlive) $cellAlives++;
         }
 
         if ($this->isCellInWorld($i-1, $j) && $this->world[$i-1][$j] === static::ALIVE) {
-            $cellAlives++;
+            if ($currentCellAlive) $cellAlives++;
         }
 
         if (2 > $cellAlives) {
@@ -137,12 +140,12 @@ class GameOfLife
         Hoa\Console\Cursor::move('↓', 1);
         $this->initEmptyWorld();
 
-        //do {
+        do {
             $hash = $this->getHash();
-            $this->computeNewState();
             $this->displayWorld();
+            $this->computeNewState();
             sleep(1);
-        //} while ($hash !== $this->getHash());
+        } while ($hash !== $this->getHash());
 
         //Hoa\Console\Cursor::show();
         Hoa\Console\Cursor::colorize('default');

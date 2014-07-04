@@ -1,6 +1,6 @@
 <?php
 
-require_once 'source/Gof.php';
+require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $parser = new Hoa\Console\Parser();
 $parser->parse(Hoa\Router\Cli::getURI());
@@ -14,7 +14,7 @@ $options = new Hoa\Console\GetOption(
     $parser
 );
 
-$gof = new GameOfLife();
+$gof = new \GameOfLife\Conway();
 
 while (false !== $shortName = $options->getOption($value)) {
     switch($shortName) {

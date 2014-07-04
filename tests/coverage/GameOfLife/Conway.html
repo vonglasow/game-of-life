@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-Language" content="en" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>gof-as : code coverage of GameOfLife\Conway</title>
+		<link rel="stylesheet" media="screen" type="text/css" href="../screen.css" title="Screen" />
+	</head>
+	<body>
+		<div id="header">
+			<h1>Code coverage of <a href="../index.html">gof-as</a>: GameOfLife\Conway</h1>
+			<h2>Class code coverage <span>0%</span></h2>
+		</div>
+		<div id="page">
+			<div id="content">
+				<h3>Methods</h3>
+				<ul class="summary">
+					
+						
+							<li>
+								
+								
+									<div class="bar">
+										<div class="background"></div>
+										<div class="graph" style="width: 0%"></div>
+										<div class="label">
+											<span class="percent">0%</span>
+											<a href="#initEmptyWorld">initEmptyWorld</a>
+										</div>
+									</div>
+								
+							</li>
+						
+							<li>
+								
+								
+									<div class="bar">
+										<div class="background"></div>
+										<div class="graph" style="width: 0%"></div>
+										<div class="label">
+											<span class="percent">0%</span>
+											<a href="#setX">setX</a>
+										</div>
+									</div>
+								
+							</li>
+						
+							<li>
+								
+								
+									<div class="bar">
+										<div class="background"></div>
+										<div class="graph" style="width: 0%"></div>
+										<div class="label">
+											<span class="percent">0%</span>
+											<a href="#setY">setY</a>
+										</div>
+									</div>
+								
+							</li>
+						
+							<li>
+								
+								
+									<div class="bar">
+										<div class="background"></div>
+										<div class="graph" style="width: 0%"></div>
+										<div class="label">
+											<span class="percent">0%</span>
+											<a href="#initRandomWorld">initRandomWorld</a>
+										</div>
+									</div>
+								
+							</li>
+						
+							<li>
+								
+								
+									<div class="bar">
+										<div class="background"></div>
+										<div class="graph" style="width: 0%"></div>
+										<div class="label">
+											<span class="percent">0%</span>
+											<a href="#getHash">getHash</a>
+										</div>
+									</div>
+								
+							</li>
+						
+							<li>
+								
+								
+									<div class="bar">
+										<div class="background"></div>
+										<div class="graph" style="width: 0%"></div>
+										<div class="label">
+											<span class="percent">0%</span>
+											<a href="#computeNewState">computeNewState</a>
+										</div>
+									</div>
+								
+							</li>
+						
+							<li>
+								
+								
+									<div class="bar">
+										<div class="background"></div>
+										<div class="graph" style="width: 0%"></div>
+										<div class="label">
+											<span class="percent">0%</span>
+											<a href="#isCellInWorld">isCellInWorld</a>
+										</div>
+									</div>
+								
+							</li>
+						
+							<li>
+								
+								
+									<div class="bar">
+										<div class="background"></div>
+										<div class="graph" style="width: 0%"></div>
+										<div class="label">
+											<span class="percent">0%</span>
+											<a href="#isDeadOrAlive">isDeadOrAlive</a>
+										</div>
+									</div>
+								
+							</li>
+						
+							<li>
+								
+								
+									<div class="bar">
+										<div class="background"></div>
+										<div class="graph" style="width: 0%"></div>
+										<div class="label">
+											<span class="percent">0%</span>
+											<a href="#displayWorld">displayWorld</a>
+										</div>
+									</div>
+								
+							</li>
+						
+							<li>
+								
+								
+									<div class="bar">
+										<div class="background"></div>
+										<div class="graph" style="width: 0%"></div>
+										<div class="label">
+											<span class="percent">0%</span>
+											<a href="#run">run</a>
+										</div>
+									</div>
+								
+							</li>
+						
+					
+				</ul>
+				<h3>Source</h3>
+				<table cellpadding="0" cellspacing="0" class="source">
+					<tr><th class="number">Line</th><th>Code</th></tr>
+					<tr><td class="number">1</td><td><pre>&lt;?php
+</pre></td></tr><tr><td class="number">2</td><td><pre>
+</pre></td></tr><tr><td class="number">3</td><td><pre>namespace GameOfLife;
+</pre></td></tr><tr><td class="number">4</td><td><pre>
+</pre></td></tr><tr><td class="number">5</td><td><pre>class Conway
+</pre></td></tr><tr><td class="number">6</td><td><pre>{
+</pre></td></tr><tr><td class="number">7</td><td><pre>    const DEAD  = 0;
+</pre></td></tr><tr><td class="number">8</td><td><pre>    const ALIVE = 1;
+</pre></td></tr><tr><td class="number">9</td><td><pre>
+</pre></td></tr><tr><td class="number">10</td><td><pre>    protected $world = array();
+</pre></td></tr><tr><td class="number">11</td><td><pre>    protected $hash;
+</pre></td></tr><tr><td class="number">12</td><td><pre>
+</pre></td></tr><tr><td class="number">13</td><td><pre>    protected $x = 25;
+</pre></td></tr><tr><td class="number">14</td><td><pre>    protected $y = 25;
+</pre></td></tr><tr><td class="number">15</td><td><pre>
+</pre></td></tr><tr><td class="number"><a name="initEmptyWorld"></a>16</td><td><pre>    public function initEmptyWorld()
+</pre></td></tr><tr><td class="number"><a name="initEmptyWorld"></a>17</td><td><pre>    {
+</pre></td></tr><tr class="notCovered"><td class="number">18</td><td><pre>        for ($i=0; $i &lt; $this-&gt;x; $i++) {
+</pre></td></tr><tr class="notCovered"><td class="number">19</td><td><pre>            for ($j=0; $j &lt; $this-&gt;y; $j++) {
+</pre></td></tr><tr class="notCovered"><td class="number">20</td><td><pre>                $this-&gt;world[$i][$j] = static::DEAD;
+</pre></td></tr><tr class="notCovered"><td class="number">21</td><td><pre>            }
+</pre></td></tr><tr class="notCovered"><td class="number">22</td><td><pre>        }
+</pre></td></tr><tr><td class="number"><a name="initEmptyWorld"></a>23</td><td><pre>
+</pre></td></tr><tr class="notCovered"><td class="number">24</td><td><pre>        $this-&gt;world[3][3] = static::ALIVE;
+</pre></td></tr><tr class="notCovered"><td class="number">25</td><td><pre>        $this-&gt;world[3][4] = static::ALIVE;
+</pre></td></tr><tr class="notCovered"><td class="number">26</td><td><pre>        $this-&gt;world[3][5] = static::ALIVE;
+</pre></td></tr><tr class="notCovered"><td class="number">27</td><td><pre>    }
+</pre></td></tr><tr><td class="number"><a name="initEmptyWorld"></a>28</td><td><pre>
+</pre></td></tr><tr><td class="number"><a name="setX"></a>29</td><td><pre>    public function setX($x)
+</pre></td></tr><tr><td class="number"><a name="setX"></a>30</td><td><pre>    {
+</pre></td></tr><tr class="notCovered"><td class="number">31</td><td><pre>        $this-&gt;x = $x;
+</pre></td></tr><tr class="notCovered"><td class="number">32</td><td><pre>    }
+</pre></td></tr><tr><td class="number"><a name="setX"></a>33</td><td><pre>
+</pre></td></tr><tr><td class="number"><a name="setY"></a>34</td><td><pre>    public function setY($y)
+</pre></td></tr><tr><td class="number"><a name="setY"></a>35</td><td><pre>    {
+</pre></td></tr><tr class="notCovered"><td class="number">36</td><td><pre>        $this-&gt;y = $y;
+</pre></td></tr><tr class="notCovered"><td class="number">37</td><td><pre>    }
+</pre></td></tr><tr><td class="number"><a name="setY"></a>38</td><td><pre>
+</pre></td></tr><tr><td class="number"><a name="initRandomWorld"></a>39</td><td><pre>    public function initRandomWorld()
+</pre></td></tr><tr><td class="number"><a name="initRandomWorld"></a>40</td><td><pre>    {
+</pre></td></tr><tr class="notCovered"><td class="number">41</td><td><pre>        for ($i=0; $i &lt; $this-&gt;x; $i++) {
+</pre></td></tr><tr class="notCovered"><td class="number">42</td><td><pre>            for ($j=0; $j &lt; $this-&gt;y; $j++) {
+</pre></td></tr><tr class="notCovered"><td class="number">43</td><td><pre>                $this-&gt;world[$i][$j] = rand(static::DEAD, static::ALIVE);
+</pre></td></tr><tr class="notCovered"><td class="number">44</td><td><pre>            }
+</pre></td></tr><tr class="notCovered"><td class="number">45</td><td><pre>        }
+</pre></td></tr><tr class="notCovered"><td class="number">46</td><td><pre>    }
+</pre></td></tr><tr><td class="number"><a name="initRandomWorld"></a>47</td><td><pre>
+</pre></td></tr><tr><td class="number"><a name="getHash"></a>48</td><td><pre>    public function getHash()
+</pre></td></tr><tr><td class="number"><a name="getHash"></a>49</td><td><pre>    {
+</pre></td></tr><tr class="notCovered"><td class="number">50</td><td><pre>        return sha1(serialize($this-&gt;world));
+</pre></td></tr><tr><td class="number"><a name="getHash"></a>51</td><td><pre>    }
+</pre></td></tr><tr><td class="number"><a name="getHash"></a>52</td><td><pre>
+</pre></td></tr><tr><td class="number"><a name="computeNewState"></a>53</td><td><pre>    public function computeNewState()
+</pre></td></tr><tr><td class="number"><a name="computeNewState"></a>54</td><td><pre>    {
+</pre></td></tr><tr class="notCovered"><td class="number">55</td><td><pre>        for ($i=0; $i &lt; $this-&gt;x; $i++) {
+</pre></td></tr><tr class="notCovered"><td class="number">56</td><td><pre>            for ($j=0; $j &lt; $this-&gt;y; $j++) {
+</pre></td></tr><tr class="notCovered"><td class="number">57</td><td><pre>                $this-&gt;world[$i][$j] = $this-&gt;isDeadOrAlive($i, $j);
+</pre></td></tr><tr class="notCovered"><td class="number">58</td><td><pre>            }
+</pre></td></tr><tr class="notCovered"><td class="number">59</td><td><pre>        }
+</pre></td></tr><tr class="notCovered"><td class="number">60</td><td><pre>    }
+</pre></td></tr><tr><td class="number"><a name="computeNewState"></a>61</td><td><pre>
+</pre></td></tr><tr><td class="number"><a name="isCellInWorld"></a>62</td><td><pre>    public function isCellInWorld($i, $j)
+</pre></td></tr><tr><td class="number"><a name="isCellInWorld"></a>63</td><td><pre>    {
+</pre></td></tr><tr class="notCovered"><td class="number">64</td><td><pre>        return ($i &lt; $this-&gt;x &amp;&amp; $j &lt; $this-&gt;y &amp;&amp; $i &gt;= 0 &amp;&amp; $j &gt;= 0);
+</pre></td></tr><tr><td class="number"><a name="isCellInWorld"></a>65</td><td><pre>    }
+</pre></td></tr><tr><td class="number"><a name="isCellInWorld"></a>66</td><td><pre>
+</pre></td></tr><tr><td class="number"><a name="isDeadOrAlive"></a>67</td><td><pre>    public function isDeadOrAlive($i, $j)
+</pre></td></tr><tr><td class="number"><a name="isDeadOrAlive"></a>68</td><td><pre>    {
+</pre></td></tr><tr class="notCovered"><td class="number">69</td><td><pre>        $cellAlives = 0;
+</pre></td></tr><tr><td class="number"><a name="isDeadOrAlive"></a>70</td><td><pre>
+</pre></td></tr><tr class="notCovered"><td class="number">71</td><td><pre>        $currentCellAlive = $this-&gt;world[$i][$j] === static::ALIVE;
+</pre></td></tr><tr><td class="number"><a name="isDeadOrAlive"></a>72</td><td><pre>
+</pre></td></tr><tr class="notCovered"><td class="number">73</td><td><pre>        if ($this-&gt;isCellInWorld($i+1, $j+1) &amp;&amp; $this-&gt;world[$i+1][$j+1] === static::ALIVE) {
+</pre></td></tr><tr class="notCovered"><td class="number">74</td><td><pre>            if ($currentCellAlive) $cellAlives++;
+</pre></td></tr><tr class="notCovered"><td class="number">75</td><td><pre>        }
+</pre></td></tr><tr><td class="number"><a name="isDeadOrAlive"></a>76</td><td><pre>
+</pre></td></tr><tr class="notCovered"><td class="number">77</td><td><pre>        if ($this-&gt;isCellInWorld($i, $j+1) &amp;&amp; $this-&gt;world[$i][$j+1] === static::ALIVE) {
+</pre></td></tr><tr class="notCovered"><td class="number">78</td><td><pre>            if ($currentCellAlive) $cellAlives++;
+</pre></td></tr><tr class="notCovered"><td class="number">79</td><td><pre>        }
+</pre></td></tr><tr><td class="number"><a name="isDeadOrAlive"></a>80</td><td><pre>
+</pre></td></tr><tr class="notCovered"><td class="number">81</td><td><pre>        if ($this-&gt;isCellInWorld($i+1, $j) &amp;&amp; $this-&gt;world[$i+1][$j] === static::ALIVE) {
+</pre></td></tr><tr class="notCovered"><td class="number">82</td><td><pre>            if ($currentCellAlive) $cellAlives++;
+</pre></td></tr><tr class="notCovered"><td class="number">83</td><td><pre>        }
+</pre></td></tr><tr><td class="number"><a name="isDeadOrAlive"></a>84</td><td><pre>
+</pre></td></tr><tr class="notCovered"><td class="number">85</td><td><pre>        if ($this-&gt;isCellInWorld($i+1, $j-1) &amp;&amp; $this-&gt;world[$i+1][$j-1] === static::ALIVE) {
+</pre></td></tr><tr class="notCovered"><td class="number">86</td><td><pre>            if ($currentCellAlive) $cellAlives++;
+</pre></td></tr><tr class="notCovered"><td class="number">87</td><td><pre>        }
+</pre></td></tr><tr><td class="number"><a name="isDeadOrAlive"></a>88</td><td><pre>
+</pre></td></tr><tr class="notCovered"><td class="number">89</td><td><pre>        if ($this-&gt;isCellInWorld($i-1, $j+1) &amp;&amp; $this-&gt;world[$i-1][$j+1] === static::ALIVE) {
+</pre></td></tr><tr class="notCovered"><td class="number">90</td><td><pre>            if ($currentCellAlive) $cellAlives++;
+</pre></td></tr><tr class="notCovered"><td class="number">91</td><td><pre>        }
+</pre></td></tr><tr><td class="number"><a name="isDeadOrAlive"></a>92</td><td><pre>
+</pre></td></tr><tr class="notCovered"><td class="number">93</td><td><pre>        if ($this-&gt;isCellInWorld($i-1, $j-1) &amp;&amp; $this-&gt;world[$i-1][$j-1] === static::ALIVE) {
+</pre></td></tr><tr class="notCovered"><td class="number">94</td><td><pre>            if ($currentCellAlive) $cellAlives++;
+</pre></td></tr><tr class="notCovered"><td class="number">95</td><td><pre>        }
+</pre></td></tr><tr><td class="number"><a name="isDeadOrAlive"></a>96</td><td><pre>
+</pre></td></tr><tr class="notCovered"><td class="number">97</td><td><pre>        if ($this-&gt;isCellInWorld($i, $j-1) &amp;&amp; $this-&gt;world[$i][$j-1] === static::ALIVE) {
+</pre></td></tr><tr class="notCovered"><td class="number">98</td><td><pre>            if ($currentCellAlive) $cellAlives++;
+</pre></td></tr><tr class="notCovered"><td class="number">99</td><td><pre>        }
+</pre></td></tr><tr><td class="number"><a name="isDeadOrAlive"></a>100</td><td><pre>
+</pre></td></tr><tr class="notCovered"><td class="number">101</td><td><pre>        if ($this-&gt;isCellInWorld($i-1, $j) &amp;&amp; $this-&gt;world[$i-1][$j] === static::ALIVE) {
+</pre></td></tr><tr class="notCovered"><td class="number">102</td><td><pre>            if ($currentCellAlive) $cellAlives++;
+</pre></td></tr><tr class="notCovered"><td class="number">103</td><td><pre>        }
+</pre></td></tr><tr><td class="number"><a name="isDeadOrAlive"></a>104</td><td><pre>
+</pre></td></tr><tr class="notCovered"><td class="number">105</td><td><pre>        if (2 &gt; $cellAlives) {
+</pre></td></tr><tr class="notCovered"><td class="number">106</td><td><pre>            return static::DEAD;
+</pre></td></tr><tr class="notCovered"><td class="number">107</td><td><pre>        } elseif (3 === $cellAlives) {
+</pre></td></tr><tr class="notCovered"><td class="number">108</td><td><pre>            return static::ALIVE;
+</pre></td></tr><tr class="notCovered"><td class="number">109</td><td><pre>        } elseif (3 &gt; $cellAlives) {
+</pre></td></tr><tr class="notCovered"><td class="number">110</td><td><pre>            return static::DEAD;
+</pre></td></tr><tr><td class="number"><a name="isDeadOrAlive"></a>111</td><td><pre>        }
+</pre></td></tr><tr class="notCovered"><td class="number">112</td><td><pre>    }
+</pre></td></tr><tr><td class="number"><a name="isDeadOrAlive"></a>113</td><td><pre>
+</pre></td></tr><tr><td class="number"><a name="displayWorld"></a>114</td><td><pre>    public function displayWorld()
+</pre></td></tr><tr><td class="number"><a name="displayWorld"></a>115</td><td><pre>    {
+</pre></td></tr><tr class="notCovered"><td class="number">116</td><td><pre>        Hoa\Console\Cursor::save();
+</pre></td></tr><tr><td class="number"><a name="displayWorld"></a>117</td><td><pre>
+</pre></td></tr><tr><td class="number"><a name="displayWorld"></a>118</td><td><pre>        //draw world
+</pre></td></tr><tr class="notCovered"><td class="number">119</td><td><pre>        foreach ($this-&gt;world as $row) {
+</pre></td></tr><tr class="notCovered"><td class="number">120</td><td><pre>            foreach ($row as $cell) {
+</pre></td></tr><tr class="notCovered"><td class="number">121</td><td><pre>                if ($cell === static::ALIVE) {
+</pre></td></tr><tr class="notCovered"><td class="number">122</td><td><pre>                    Hoa\Console\Cursor::colorize(&#039;fg(white) bg(white)&#039;);
+</pre></td></tr><tr class="notCovered"><td class="number">123</td><td><pre>                } else {
+</pre></td></tr><tr class="notCovered"><td class="number">124</td><td><pre>                    Hoa\Console\Cursor::colorize(&#039;fg(black) bg(black)&#039;);
+</pre></td></tr><tr><td class="number"><a name="displayWorld"></a>125</td><td><pre>                }
+</pre></td></tr><tr class="notCovered"><td class="number">126</td><td><pre>                echo &#039;  &#039;;
+</pre></td></tr><tr class="notCovered"><td class="number">127</td><td><pre>            }
+</pre></td></tr><tr class="notCovered"><td class="number">128</td><td><pre>            Hoa\Console\Cursor::move(&#039;&larr;&#039;, $this-&gt;x * 2);
+</pre></td></tr><tr class="notCovered"><td class="number">129</td><td><pre>            Hoa\Console\Cursor::move(&#039;&darr;&#039;, 1);
+</pre></td></tr><tr class="notCovered"><td class="number">130</td><td><pre>        }
+</pre></td></tr><tr><td class="number"><a name="displayWorld"></a>131</td><td><pre>
+</pre></td></tr><tr class="notCovered"><td class="number">132</td><td><pre>        Hoa\Console\Cursor::restore();
+</pre></td></tr><tr class="notCovered"><td class="number">133</td><td><pre>    }
+</pre></td></tr><tr><td class="number"><a name="displayWorld"></a>134</td><td><pre>
+</pre></td></tr><tr><td class="number"><a name="run"></a>135</td><td><pre>    public function run()
+</pre></td></tr><tr><td class="number"><a name="run"></a>136</td><td><pre>    {
+</pre></td></tr><tr class="notCovered"><td class="number">137</td><td><pre>        Hoa\Console\Cursor::clear(&#039;↕&#039;);
+</pre></td></tr><tr><td class="number"><a name="run"></a>138</td><td><pre>        //Hoa\Console\Cursor::hide();
+</pre></td></tr><tr class="notCovered"><td class="number">139</td><td><pre>        Hoa\Console\Cursor::move(&#039;&darr;&#039;, 1);
+</pre></td></tr><tr class="notCovered"><td class="number">140</td><td><pre>        $this-&gt;initEmptyWorld();
+</pre></td></tr><tr><td class="number"><a name="run"></a>141</td><td><pre>
+</pre></td></tr><tr><td class="number"><a name="run"></a>142</td><td><pre>        do {
+</pre></td></tr><tr class="notCovered"><td class="number">143</td><td><pre>            $hash = $this-&gt;getHash();
+</pre></td></tr><tr class="notCovered"><td class="number">144</td><td><pre>            $this-&gt;displayWorld();
+</pre></td></tr><tr class="notCovered"><td class="number">145</td><td><pre>            $this-&gt;computeNewState();
+</pre></td></tr><tr class="notCovered"><td class="number">146</td><td><pre>            sleep(1);
+</pre></td></tr><tr class="notCovered"><td class="number">147</td><td><pre>        } while ($hash !== $this-&gt;getHash());
+</pre></td></tr><tr><td class="number"><a name="run"></a>148</td><td><pre>
+</pre></td></tr><tr><td class="number"><a name="run"></a>149</td><td><pre>        //Hoa\Console\Cursor::show();
+</pre></td></tr><tr class="notCovered"><td class="number">150</td><td><pre>        Hoa\Console\Cursor::colorize(&#039;default&#039;);
+</pre></td></tr><tr class="notCovered"><td class="number">151</td><td><pre>        Hoa\Console\Cursor::move(&#039;&darr;&#039;, $this-&gt;y);
+</pre></td></tr><tr class="notCovered"><td class="number">152</td><td><pre>    }
+</pre></td></tr><tr><td class="number"><a name="run"></a>153</td><td><pre>}
+</pre></td></tr>
+				</table>
+			</div>
+		</div>
+		<div id="footer">
+			<p>Code coverage report powered by <a href="http://atoum.org">atoum</a></p>
+		</div>
+	</body>
+</html>

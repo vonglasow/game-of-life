@@ -1,8 +1,22 @@
 {
-    "name": "root/gameoflife",
+    "name": "ashgenesis/game-of-life",
+    "description": "An implementation of Game of Life with Hoa\\Console",
+    "license": "WTFPL",
+    "authors": [
+        {
+            "name": "alexis von Glasow",
+            "email": "vonglasow@gmail.com"
+        }
+    ],
     "require": {
         "hoa/console": "dev-master",
         "hoa/router": "dev-master"
+    },
+    "require-dev": {
+        "atoum/atoum": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {"GameOfLife\\": "source/"}
     },
     "minimum-stability": "dev"
 }
