@@ -375,12 +375,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/Contributions-Atoum-PraspelExtension.git",
-                "reference": "6a8631038d28456b82e65e641b6508581b35dd58"
+                "reference": "022a0fec13bfc3fd2b197f7de6c9981726ce14a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/Contributions-Atoum-PraspelExtension/zipball/6a8631038d28456b82e65e641b6508581b35dd58",
-                "reference": "6a8631038d28456b82e65e641b6508581b35dd58",
+                "url": "https://api.github.com/repos/hoaproject/Contributions-Atoum-PraspelExtension/zipball/022a0fec13bfc3fd2b197f7de6c9981726ce14a7",
+                "reference": "022a0fec13bfc3fd2b197f7de6c9981726ce14a7",
                 "shasum": ""
             },
             "require": {
@@ -430,7 +430,7 @@
                 "specification",
                 "test"
             ],
-            "time": "2014-06-16 20:03:42"
+            "time": "2014-07-07 11:48:44"
         },
         {
             "name": "hoa/compiler",
