@@ -8,7 +8,14 @@ class Conway
     const DEAD  = 0;
     const ALIVE = 1;
 
+    /**
+     * @invariant world: array([from 0..5 to integer()], 0..1);
+     */
     protected $world = array();
+
+    /**
+     * @invariant hash: string('a-z');
+     */
     protected $hash;
 
     protected $x = 25;
@@ -33,6 +40,9 @@ class Conway
         return $this;
     }
 
+    /**
+     * @ensures \result: this->world;
+     */
     public function getWorld()
     {
         return $this->world;
