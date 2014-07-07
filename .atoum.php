@@ -1,5 +1,5 @@
 <?php
-use mageekguy\atoum;
+/*use mageekguy\atoum;
 
 define('CODE_COVERAGE_ROOT', __DIR__ . DIRECTORY_SEPARATOR . 'tests/coverage');
 
@@ -22,4 +22,15 @@ $script->noCodeCoverageForNamespaces('atoum');
 
 $runner->addTestsFromDirectory(__DIR__ . '/tests');
 
-$runner->setBootstrapFile(__DIR__ . '/.bootstrap.php');
+$runner->setBootstrapFile(__DIR__ . '/.bootstrap.atoum.php');*/
+
+use mageekguy\atoum\instrumentation\stream\cache;
+
+cache::setCacheDirectory('/tmp');
+
+$runner
+    ->disableXDebugCodeCoverage()
+    ->enableInstrumentation()
+        ->disableMoleInstrumentation()
+    ->addExtension(new Atoum\PraspelExtension\Manifest())
+;
