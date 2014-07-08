@@ -9,12 +9,12 @@ class Conway
     const ALIVE = 1;
 
     /**
-     * @invariant world: array([from 0..5 to integer()], 0..1);
+     * @invariant world: array([0..1], 3);
      */
     protected $world = array();
 
     /**
-     * @invariant hash: string('a-z');
+     * @invariant hash: string('a', 'z', 32);
      */
     protected $hash;
 
