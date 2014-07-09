@@ -96,12 +96,10 @@ class Conway extends atoum\test
         $this->object($conway = new game)->isInstanceOf('\GameOfLife\Conway')
             ->if()->object($conway->setWorld($start))->isInstanceOf('\GameOfLife\Conway')
             ->and()
-                ->object($conway->setX(3))->isInstanceOf('\GameOfLife\Conway')
-                ->object($conway->setY(3))->isInstanceOf('\GameOfLife\Conway')
+                ->object($conway->setX(count($start)))->isInstanceOf('\GameOfLife\Conway')
+                ->object($conway->setY(count($start)))->isInstanceOf('\GameOfLife\Conway')
             ->if()
-            /* ->dump($conway->getWorld()) */
                 ->object($conway->computeNewState())->isInstanceOf('\GameOfLife\Conway')
-            /* ->dump($conway->getWorld()) */
             ->then()->array($conway->getWorld())->isEqualTo($end)
         ;
     }

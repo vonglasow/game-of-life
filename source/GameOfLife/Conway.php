@@ -145,8 +145,6 @@ class Conway
             $survive = static::DEAD;
         }
 
-        //var_dump($cellAlives . ' => ' . (string) $currentCellAlive . ' => ' . $survive);
-
         return $survive;
     }
 
@@ -182,7 +180,7 @@ class Conway
             $hash = $this->computeHash();
             $this->displayWorld();
             $this->computeNewState();
-            sleep(1);
+            sleep(0.5);
         } while ($hash !== $this->computeHash());
 
         //Hoa\Console\Cursor::show();
