@@ -14,20 +14,26 @@ class Conway
      */
     protected $world = array();
 
-    protected $x = 25;
-    protected $y = 25;
+    protected $x = 50;
+    protected $y = 50;
 
     public function initEmptyWorld()
     {
-        $this->world = array();
+        $this->world = $this->createEmptyWorld();
+        return $this;
+    }
+
+    public function createEmptyWorld()
+    {
+        $world = array();
 
         for ($i=0; $i < $this->x; $i++) {
             for ($j=0; $j < $this->y; $j++) {
-                $this->world[$i][$j] = static::DEAD;
+                $world[$i][$j] = static::DEAD;
             }
         }
 
-        return $this;
+        return $world;
     }
 
     public function setWorld($world)
@@ -65,6 +71,99 @@ class Conway
         }
     }
 
+    public function initGliderGun()
+    {
+        $this->initEmptyWorld();
+
+        $this->world[2][7] = static::ALIVE;
+        $this->world[2][8] = static::ALIVE;
+        $this->world[3][6] = static::ALIVE;
+        $this->world[4][5] = static::ALIVE;
+        $this->world[4][19] = static::ALIVE;
+        $this->world[4][23] = static::ALIVE;
+        $this->world[5][5] = static::ALIVE;
+        $this->world[5][18] = static::ALIVE;
+        $this->world[5][19] = static::ALIVE;
+        $this->world[5][22] = static::ALIVE;
+        $this->world[5][23] = static::ALIVE;
+        $this->world[6][5] = static::ALIVE;
+        $this->world[6][21] = static::ALIVE;
+        $this->world[6][22] = static::ALIVE;
+        $this->world[7][6] = static::ALIVE;
+        $this->world[7][21] = static::ALIVE;
+        $this->world[7][22] = static::ALIVE;
+        $this->world[7][23] = static::ALIVE;
+        $this->world[8][3] = static::ALIVE;
+        $this->world[8][7] = static::ALIVE;
+        $this->world[8][8] = static::ALIVE;
+        $this->world[8][21] = static::ALIVE;
+        $this->world[8][22] = static::ALIVE;
+        $this->world[9][2] = static::ALIVE;
+        $this->world[9][3] = static::ALIVE;
+        $this->world[9][18] = static::ALIVE;
+        $this->world[9][19] = static::ALIVE;
+        $this->world[10][19] = static::ALIVE;
+    }
+
+    public function initGun()
+    {
+        $this->initEmptyWorld();
+
+        $this->world[6][2] = static::ALIVE;
+        $this->world[6][3] = static::ALIVE;
+        $this->world[7][2] = static::ALIVE;
+        $this->world[7][3] = static::ALIVE;
+
+        $this->world[6][12] = static::ALIVE;
+        $this->world[7][12] = static::ALIVE;
+        $this->world[8][12] = static::ALIVE;
+        $this->world[5][13] = static::ALIVE;
+        $this->world[9][13] = static::ALIVE;
+        $this->world[10][14] = static::ALIVE;
+        $this->world[4][14] = static::ALIVE;
+        $this->world[4][15] = static::ALIVE;
+        $this->world[10][15] = static::ALIVE;
+
+        $this->world[7][16] = static::ALIVE;
+
+        $this->world[5][17] = static::ALIVE;
+        $this->world[9][17] = static::ALIVE;
+        $this->world[6][18] = static::ALIVE;
+        $this->world[7][18] = static::ALIVE;
+        $this->world[8][18] = static::ALIVE;
+        $this->world[7][19] = static::ALIVE;
+
+        $this->world[6][22] = static::ALIVE;
+        $this->world[5][22] = static::ALIVE;
+        $this->world[4][22] = static::ALIVE;
+        $this->world[6][23] = static::ALIVE;
+        $this->world[5][23] = static::ALIVE;
+        $this->world[4][23] = static::ALIVE;
+
+        $this->world[3][24] = static::ALIVE;
+        $this->world[7][24] = static::ALIVE;
+        $this->world[2][26] = static::ALIVE;
+        $this->world[3][26] = static::ALIVE;
+        $this->world[7][26] = static::ALIVE;
+        $this->world[8][26] = static::ALIVE;
+
+        $this->world[4][36] = static::ALIVE;
+        $this->world[5][36] = static::ALIVE;
+        $this->world[4][37] = static::ALIVE;
+        $this->world[5][37] = static::ALIVE;
+    }
+
+    public function initGlider()
+    {
+        $this->initEmptyWorld();
+
+        $this->world[18][10] = static::ALIVE;
+        $this->world[18][11] = static::ALIVE;
+        $this->world[18][12] = static::ALIVE;
+        $this->world[19][12] = static::ALIVE;
+        $this->world[20][11] = static::ALIVE;
+    }
+
     public function computeHash()
     {
         return sha1(serialize($this->world));
@@ -72,12 +171,7 @@ class Conway
 
     public function computeNewState()
     {
-        $newWorld = $this->world;
-        for ($i=0; $i < $this->x; $i++) {
-            for ($j=0; $j < $this->y; $j++) {
-                $newWorld[$i][$j] = static::DEAD;
-            }
-        }
+        $newWorld = $this->createEmptyWorld();
 
         for ($i=0; $i < $this->x; $i++) {
             for ($j=0; $j < $this->y; $j++) {
@@ -133,12 +227,8 @@ class Conway
             $cellAlives++;
         }
 
-        if (2 > $cellAlives) {
-            $survive = static::DEAD;
-        } elseif (3 === $cellAlives) {
+        if (3 === $cellAlives) {
             $survive = static::ALIVE;
-        } elseif (3 < $cellAlives) {
-            $survive = static::DEAD;
         } elseif (2 === $cellAlives) {
             $survive = ($currentCellAlive) ? static::ALIVE : static::DEAD;
         } else {
@@ -174,13 +264,16 @@ class Conway
         Hoa\Console\Cursor::clear('↕');
         Hoa\Console\Cursor::hide();
         Hoa\Console\Cursor::move('↓', 1);
-        $this->initRandomWorld();
+
+        if (array() === $this->world) {
+            $this->initGun();
+        }
 
         do {
             $hash = $this->computeHash();
             $this->displayWorld();
             $this->computeNewState();
-            sleep(0.5);
+            usleep(80000);
         } while ($hash !== $this->computeHash());
 
         Hoa\Console\Cursor::show();
