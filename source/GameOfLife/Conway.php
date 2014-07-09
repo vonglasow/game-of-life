@@ -172,7 +172,7 @@ class Conway
     public function run()
     {
         Hoa\Console\Cursor::clear('↕');
-        //Hoa\Console\Cursor::hide();
+        Hoa\Console\Cursor::hide();
         Hoa\Console\Cursor::move('↓', 1);
         $this->initRandomWorld();
 
@@ -183,7 +183,7 @@ class Conway
             sleep(0.5);
         } while ($hash !== $this->computeHash());
 
-        //Hoa\Console\Cursor::show();
+        Hoa\Console\Cursor::show();
         Hoa\Console\Cursor::colorize('default');
         Hoa\Console\Cursor::move('↓', $this->y);
     }
