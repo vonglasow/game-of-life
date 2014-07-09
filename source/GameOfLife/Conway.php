@@ -1,6 +1,7 @@
 <?php
 
 namespace GameOfLife;
+
 use Hoa;
 
 class Conway
@@ -12,11 +13,6 @@ class Conway
      * @invariant world: array([0..1], 3);
      */
     protected $world = array();
-
-    /**
-     * @invariant hash: string('a', 'z', 32);
-     */
-    protected $hash;
 
     protected $x = 25;
     protected $y = 25;
@@ -69,18 +65,27 @@ class Conway
         }
     }
 
-    public function getHash()
+    public function computeHash()
     {
         return sha1(serialize($this->world));
     }
 
     public function computeNewState()
     {
+        $newWorld = $this->world;
         for ($i=0; $i < $this->x; $i++) {
             for ($j=0; $j < $this->y; $j++) {
-                $this->world[$i][$j] = $this->isDeadOrAlive($i, $j);
+                $newWorld[$i][$j] = static::DEAD;
             }
         }
+
+        for ($i=0; $i < $this->x; $i++) {
+            for ($j=0; $j < $this->y; $j++) {
+                $newWorld[$i][$j] = $this->isDeadOrAlive($i, $j);
+            }
+        }
+
+        $this->world = $newWorld;
 
         return $this;
     }
@@ -97,44 +102,52 @@ class Conway
         $currentCellAlive = $this->world[$i][$j] === static::ALIVE;
 
         if ($this->isCellInWorld($i+1, $j+1) && $this->world[$i+1][$j+1] === static::ALIVE) {
-            if ($currentCellAlive) $cellAlives++;
+            $cellAlives++;
         }
 
         if ($this->isCellInWorld($i, $j+1) && $this->world[$i][$j+1] === static::ALIVE) {
-            if ($currentCellAlive) $cellAlives++;
+            $cellAlives++;
         }
 
         if ($this->isCellInWorld($i+1, $j) && $this->world[$i+1][$j] === static::ALIVE) {
-            if ($currentCellAlive) $cellAlives++;
+            $cellAlives++;
         }
 
         if ($this->isCellInWorld($i+1, $j-1) && $this->world[$i+1][$j-1] === static::ALIVE) {
-            if ($currentCellAlive) $cellAlives++;
+            $cellAlives++;
         }
 
         if ($this->isCellInWorld($i-1, $j+1) && $this->world[$i-1][$j+1] === static::ALIVE) {
-            if ($currentCellAlive) $cellAlives++;
+            $cellAlives++;
         }
 
         if ($this->isCellInWorld($i-1, $j-1) && $this->world[$i-1][$j-1] === static::ALIVE) {
-            if ($currentCellAlive) $cellAlives++;
+            $cellAlives++;
         }
 
         if ($this->isCellInWorld($i, $j-1) && $this->world[$i][$j-1] === static::ALIVE) {
-            if ($currentCellAlive) $cellAlives++;
+            $cellAlives++;
         }
 
         if ($this->isCellInWorld($i-1, $j) && $this->world[$i-1][$j] === static::ALIVE) {
-            if ($currentCellAlive) $cellAlives++;
+            $cellAlives++;
         }
 
         if (2 > $cellAlives) {
-            return static::DEAD;
+            $survive = static::DEAD;
         } elseif (3 === $cellAlives) {
-            return static::ALIVE;
-        } elseif (3 > $cellAlives) {
-            return static::DEAD;
+            $survive = static::ALIVE;
+        } elseif (3 < $cellAlives) {
+            $survive = static::DEAD;
+        } elseif (2 === $cellAlives) {
+            $survive = ($currentCellAlive) ? static::ALIVE : static::DEAD;
+        } else {
+            $survive = static::DEAD;
         }
+
+        //var_dump($cellAlives . ' => ' . (string) $currentCellAlive . ' => ' . $survive);
+
+        return $survive;
     }
 
     public function displayWorld()
@@ -163,14 +176,14 @@ class Conway
         Hoa\Console\Cursor::clear('↕');
         //Hoa\Console\Cursor::hide();
         Hoa\Console\Cursor::move('↓', 1);
-        $this->initEmptyWorld();
+        $this->initRandomWorld();
 
         do {
-            $hash = $this->getHash();
+            $hash = $this->computeHash();
             $this->displayWorld();
             $this->computeNewState();
             sleep(1);
-        } while ($hash !== $this->getHash());
+        } while ($hash !== $this->computeHash());
 
         //Hoa\Console\Cursor::show();
         Hoa\Console\Cursor::colorize('default');

@@ -70,6 +70,21 @@ class Conway extends atoum\test
                     [0, 1, 0]
                 ]
             ],
+            [
+                [
+                    [1, 1, 0, 0],
+                    [0, 0, 1, 0],
+                    [0, 1, 1, 1],
+                    [0, 0, 1, 0]
+                ]
+                ,
+                [
+                    [0, 1, 0, 0],
+                    [1, 0, 0, 1],
+                    [0, 1, 0, 1],
+                    [0, 1, 1, 1]
+                ]
+            ],
         ];
     }
 
@@ -84,7 +99,9 @@ class Conway extends atoum\test
                 ->object($conway->setX(3))->isInstanceOf('\GameOfLife\Conway')
                 ->object($conway->setY(3))->isInstanceOf('\GameOfLife\Conway')
             ->if()
+            /* ->dump($conway->getWorld()) */
                 ->object($conway->computeNewState())->isInstanceOf('\GameOfLife\Conway')
+            /* ->dump($conway->getWorld()) */
             ->then()->array($conway->getWorld())->isEqualTo($end)
         ;
     }
