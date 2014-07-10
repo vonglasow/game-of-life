@@ -3,6 +3,14 @@ Game Of Life
 
 An implementation of the famous Game Of Life (Conway 1970) with Hoa\Console
 
+Installation
+============
+
+```sh
+git clone git@github.com:vonglasow/game-of-life.git
+composer install
+```
+
 Usage
 =====
 
