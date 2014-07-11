@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4f0e883468ba8f67f3a261fd5845cd19",
+    "hash": "c0055ee4739306feb5cbd91245ce6ec4",
     "packages": [
         {
             "name": "hoa/console",
@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/Console.git",
-                "reference": "3338f05f9dab13eda989ef554979cb6577f38759"
+                "reference": "f1b034ef988f5c93d8896277af737857a4412db2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/Console/zipball/3338f05f9dab13eda989ef554979cb6577f38759",
-                "reference": "3338f05f9dab13eda989ef554979cb6577f38759",
+                "url": "https://api.github.com/repos/hoaproject/Console/zipball/f1b034ef988f5c93d8896277af737857a4412db2",
+                "reference": "f1b034ef988f5c93d8896277af737857a4412db2",
                 "shasum": ""
             },
             "require": {
@@ -69,7 +69,7 @@
                 "tput",
                 "window"
             ],
-            "time": "2014-07-07 07:33:18"
+            "time": "2014-07-09 12:46:23"
         },
         {
             "name": "hoa/core",
@@ -78,12 +78,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/Core.git",
-                "reference": "3d6fb509fa664aabb0c3e3a4b8467007cf83dd00"
+                "reference": "695bfe6247fe9cd58073fa35b0cb0f45002fa9ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/Core/zipball/3d6fb509fa664aabb0c3e3a4b8467007cf83dd00",
-                "reference": "3d6fb509fa664aabb0c3e3a4b8467007cf83dd00",
+                "url": "https://api.github.com/repos/hoaproject/Core/zipball/695bfe6247fe9cd58073fa35b0cb0f45002fa9ad",
+                "reference": "695bfe6247fe9cd58073fa35b0cb0f45002fa9ad",
                 "shasum": ""
             },
             "require": {
@@ -134,7 +134,7 @@
                 "parameter",
                 "protocol"
             ],
-            "time": "2014-07-07 07:37:18"
+            "time": "2014-07-11 06:50:35"
         },
         {
             "name": "hoa/router",
@@ -294,16 +294,16 @@
     "packages-dev": [
         {
             "name": "atoum/atoum",
-            "version": "dev-experimentation",
+            "version": "dev-edge",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jubianchi/atoum.git",
-                "reference": "02539e718cd8abce93f1ee035189285217627204"
+                "url": "https://github.com/atoum/atoum.git",
+                "reference": "6106d196be9625755b341a4a52be87b496d285a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jubianchi/atoum/zipball/02539e718cd8abce93f1ee035189285217627204",
-                "reference": "02539e718cd8abce93f1ee035189285217627204",
+                "url": "https://api.github.com/repos/atoum/atoum/zipball/6106d196be9625755b341a4a52be87b496d285a9",
+                "reference": "6106d196be9625755b341a4a52be87b496d285a9",
                 "shasum": ""
             },
             "require": {
@@ -329,6 +329,7 @@
                     "classes/"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD"
             ],
@@ -363,11 +364,7 @@
                 "test",
                 "unit testing"
             ],
-            "support": {
-                "source": "https://github.com/jubianchi/atoum/tree/experimentation",
-                "issues": "https://github.com/jubianchi/atoum/issues"
-            },
-            "time": "2014-03-25 09:28:40"
+            "time": "2014-06-27 10:04:57"
         },
         {
             "name": "atoum/praspel-extension",

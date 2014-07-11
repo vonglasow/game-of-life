@@ -164,6 +164,9 @@ class Conway
         $this->world[20][11] = static::ALIVE;
     }
 
+    /**
+     * @ensures  \result: string('a', 'z', 40);
+     */
     public function computeHash()
     {
         return sha1(serialize($this->world));

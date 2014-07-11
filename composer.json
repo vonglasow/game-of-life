@@ -8,18 +8,12 @@
             "email": "vonglasow@gmail.com"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/jubianchi/atoum"
-        }
-    ],
     "require": {
         "hoa/console": "dev-master",
         "hoa/router": "dev-master"
     },
     "require-dev": {
-        "atoum/atoum": "dev-experimentation",
+        "atoum/atoum": "dev-edge",
         "atoum/praspel-extension": "dev-master"
     },
     "autoload": {
