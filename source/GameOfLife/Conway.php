@@ -197,36 +197,16 @@ class Conway
     {
         $cellAlives = 0;
 
-        if ($this->isCellInWorld($i+1, $j+1) && $this->world[$i+1][$j+1] === static::ALIVE) {
-            $cellAlives++;
+        for ($xpos = $i - 1; $xpos <= $i + 1; $xpos += 1) {
+            for ($ypos = $j - 1; $ypos <= $j + 1; $ypos += 1) {
+                if ($this->isCellInWorld($xpos, $ypos) && $this->world[$xpos][$ypos] === static::ALIVE) {
+                    $cellAlives++;
+                }
+            }
         }
 
-        if ($this->isCellInWorld($i, $j+1) && $this->world[$i][$j+1] === static::ALIVE) {
-            $cellAlives++;
-        }
-
-        if ($this->isCellInWorld($i+1, $j) && $this->world[$i+1][$j] === static::ALIVE) {
-            $cellAlives++;
-        }
-
-        if ($this->isCellInWorld($i+1, $j-1) && $this->world[$i+1][$j-1] === static::ALIVE) {
-            $cellAlives++;
-        }
-
-        if ($this->isCellInWorld($i-1, $j+1) && $this->world[$i-1][$j+1] === static::ALIVE) {
-            $cellAlives++;
-        }
-
-        if ($this->isCellInWorld($i-1, $j-1) && $this->world[$i-1][$j-1] === static::ALIVE) {
-            $cellAlives++;
-        }
-
-        if ($this->isCellInWorld($i, $j-1) && $this->world[$i][$j-1] === static::ALIVE) {
-            $cellAlives++;
-        }
-
-        if ($this->isCellInWorld($i-1, $j) && $this->world[$i-1][$j] === static::ALIVE) {
-            $cellAlives++;
+        if ($this->world[$i][$j] == static::ALIVE) {
+            $cellAlives -= 1;
         }
 
         if (3 === $cellAlives) {
