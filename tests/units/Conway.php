@@ -273,4 +273,67 @@ class Conway extends atoum\test
             ->then()->array($conway->getWorld())->isEqualTo($end)
         ;
     }
+
+    public function testIsDeadOrAlive()
+    {
+        $this->object($conway = new game)->isInstanceOf('\GameOfLife\Conway')
+            ->if()->object($conway->setWorld(
+                    [
+                        [0, 0, 0],
+                        [1, 1, 1],
+                        [0, 0, 0]
+                    ]
+                )
+            )->isInstanceOf('\GameOfLife\Conway')
+            ->and()
+                ->object($conway->setX(3))->isInstanceOf('\GameOfLife\Conway')
+                ->object($conway->setY(3))->isInstanceOf('\GameOfLife\Conway')
+            ->if()
+                ->integer($conway->isDeadOrAlive(0, 0))->isEqualTo(0)
+                ->integer($conway->isDeadOrAlive(0, 1))->isEqualTo(1)
+                ->integer($conway->isDeadOrAlive(0, 2))->isEqualTo(0)
+                ->integer($conway->isDeadOrAlive(1, 0))->isEqualTo(0)
+                ->integer($conway->isDeadOrAlive(1, 1))->isEqualTo(1)
+                ->integer($conway->isDeadOrAlive(1, 2))->isEqualTo(0)
+                ->integer($conway->isDeadOrAlive(2, 0))->isEqualTo(0)
+                ->integer($conway->isDeadOrAlive(2, 1))->isEqualTo(1)
+                ->integer($conway->isDeadOrAlive(2, 2))->isEqualTo(0)
+            ->if()->object($conway->setWorld(
+                    [
+                        [1, 1, 0],
+                        [1, 1, 0],
+                        [0, 0, 0]
+                    ]
+                )
+            )->isInstanceOf('\GameOfLife\Conway')
+            ->if()
+                ->integer($conway->isDeadOrAlive(0, 0))->isEqualTo(1)
+                ->integer($conway->isDeadOrAlive(0, 1))->isEqualTo(1)
+                ->integer($conway->isDeadOrAlive(0, 2))->isEqualTo(0)
+                ->integer($conway->isDeadOrAlive(1, 0))->isEqualTo(1)
+                ->integer($conway->isDeadOrAlive(1, 1))->isEqualTo(1)
+                ->integer($conway->isDeadOrAlive(1, 2))->isEqualTo(0)
+                ->integer($conway->isDeadOrAlive(2, 0))->isEqualTo(0)
+                ->integer($conway->isDeadOrAlive(2, 1))->isEqualTo(0)
+                ->integer($conway->isDeadOrAlive(2, 2))->isEqualTo(0)
+            ->if()->object($conway->setWorld(
+                    [
+                        [1, 1, 0],
+                        [1, 1, 0],
+                        [0, 1, 0]
+                    ]
+                )
+            )->isInstanceOf('\GameOfLife\Conway')
+            ->if()
+                ->integer($conway->isDeadOrAlive(0, 0))->isEqualTo(1)
+                ->integer($conway->isDeadOrAlive(0, 1))->isEqualTo(1)
+                ->integer($conway->isDeadOrAlive(0, 2))->isEqualTo(0)
+                ->integer($conway->isDeadOrAlive(1, 0))->isEqualTo(0)
+                ->integer($conway->isDeadOrAlive(1, 1))->isEqualTo(0)
+                ->integer($conway->isDeadOrAlive(1, 2))->isEqualTo(1)
+                ->integer($conway->isDeadOrAlive(2, 0))->isEqualTo(1)
+                ->integer($conway->isDeadOrAlive(2, 1))->isEqualTo(1)
+                ->integer($conway->isDeadOrAlive(2, 2))->isEqualTo(0)
+        ;
+    }
 }

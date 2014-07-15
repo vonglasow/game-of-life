@@ -14,7 +14,14 @@ class Conway
      */
     protected $world = array();
 
+    /**
+     * @invariant world: integer();
+     */
     protected $x = 50;
+
+    /**
+     * @invariant world: integer();
+     */
     protected $y = 50;
 
     public function initEmptyWorld()
@@ -75,33 +82,33 @@ class Conway
     {
         $this->initEmptyWorld();
 
-        $this->world[2][7] = static::ALIVE;
-        $this->world[2][8] = static::ALIVE;
-        $this->world[3][6] = static::ALIVE;
-        $this->world[4][5] = static::ALIVE;
-        $this->world[4][19] = static::ALIVE;
-        $this->world[4][23] = static::ALIVE;
-        $this->world[5][5] = static::ALIVE;
-        $this->world[5][18] = static::ALIVE;
-        $this->world[5][19] = static::ALIVE;
-        $this->world[5][22] = static::ALIVE;
-        $this->world[5][23] = static::ALIVE;
-        $this->world[6][5] = static::ALIVE;
-        $this->world[6][21] = static::ALIVE;
-        $this->world[6][22] = static::ALIVE;
-        $this->world[7][6] = static::ALIVE;
-        $this->world[7][21] = static::ALIVE;
-        $this->world[7][22] = static::ALIVE;
-        $this->world[7][23] = static::ALIVE;
-        $this->world[8][3] = static::ALIVE;
-        $this->world[8][7] = static::ALIVE;
-        $this->world[8][8] = static::ALIVE;
-        $this->world[8][21] = static::ALIVE;
-        $this->world[8][22] = static::ALIVE;
-        $this->world[9][2] = static::ALIVE;
-        $this->world[9][3] = static::ALIVE;
-        $this->world[9][18] = static::ALIVE;
-        $this->world[9][19] = static::ALIVE;
+        $this->world[2][7]   = static::ALIVE;
+        $this->world[2][8]   = static::ALIVE;
+        $this->world[3][6]   = static::ALIVE;
+        $this->world[4][5]   = static::ALIVE;
+        $this->world[4][19]  = static::ALIVE;
+        $this->world[4][23]  = static::ALIVE;
+        $this->world[5][5]   = static::ALIVE;
+        $this->world[5][18]  = static::ALIVE;
+        $this->world[5][19]  = static::ALIVE;
+        $this->world[5][22]  = static::ALIVE;
+        $this->world[5][23]  = static::ALIVE;
+        $this->world[6][5]   = static::ALIVE;
+        $this->world[6][21]  = static::ALIVE;
+        $this->world[6][22]  = static::ALIVE;
+        $this->world[7][6]   = static::ALIVE;
+        $this->world[7][21]  = static::ALIVE;
+        $this->world[7][22]  = static::ALIVE;
+        $this->world[7][23]  = static::ALIVE;
+        $this->world[8][3]   = static::ALIVE;
+        $this->world[8][7]   = static::ALIVE;
+        $this->world[8][8]   = static::ALIVE;
+        $this->world[8][21]  = static::ALIVE;
+        $this->world[8][22]  = static::ALIVE;
+        $this->world[9][2]   = static::ALIVE;
+        $this->world[9][3]   = static::ALIVE;
+        $this->world[9][18]  = static::ALIVE;
+        $this->world[9][19]  = static::ALIVE;
         $this->world[10][19] = static::ALIVE;
     }
 
@@ -109,48 +116,42 @@ class Conway
     {
         $this->initEmptyWorld();
 
-        $this->world[6][2] = static::ALIVE;
-        $this->world[6][3] = static::ALIVE;
-        $this->world[7][2] = static::ALIVE;
-        $this->world[7][3] = static::ALIVE;
-
-        $this->world[6][12] = static::ALIVE;
-        $this->world[7][12] = static::ALIVE;
-        $this->world[8][12] = static::ALIVE;
-        $this->world[5][13] = static::ALIVE;
-        $this->world[9][13] = static::ALIVE;
+        $this->world[6][2]   = static::ALIVE;
+        $this->world[6][3]   = static::ALIVE;
+        $this->world[7][2]   = static::ALIVE;
+        $this->world[7][3]   = static::ALIVE;
+        $this->world[6][12]  = static::ALIVE;
+        $this->world[7][12]  = static::ALIVE;
+        $this->world[8][12]  = static::ALIVE;
+        $this->world[5][13]  = static::ALIVE;
+        $this->world[9][13]  = static::ALIVE;
         $this->world[10][14] = static::ALIVE;
-        $this->world[4][14] = static::ALIVE;
-        $this->world[4][15] = static::ALIVE;
+        $this->world[4][14]  = static::ALIVE;
+        $this->world[4][15]  = static::ALIVE;
         $this->world[10][15] = static::ALIVE;
-
-        $this->world[7][16] = static::ALIVE;
-
-        $this->world[5][17] = static::ALIVE;
-        $this->world[9][17] = static::ALIVE;
-        $this->world[6][18] = static::ALIVE;
-        $this->world[7][18] = static::ALIVE;
-        $this->world[8][18] = static::ALIVE;
-        $this->world[7][19] = static::ALIVE;
-
-        $this->world[6][22] = static::ALIVE;
-        $this->world[5][22] = static::ALIVE;
-        $this->world[4][22] = static::ALIVE;
-        $this->world[6][23] = static::ALIVE;
-        $this->world[5][23] = static::ALIVE;
-        $this->world[4][23] = static::ALIVE;
-
-        $this->world[3][24] = static::ALIVE;
-        $this->world[7][24] = static::ALIVE;
-        $this->world[2][26] = static::ALIVE;
-        $this->world[3][26] = static::ALIVE;
-        $this->world[7][26] = static::ALIVE;
-        $this->world[8][26] = static::ALIVE;
-
-        $this->world[4][36] = static::ALIVE;
-        $this->world[5][36] = static::ALIVE;
-        $this->world[4][37] = static::ALIVE;
-        $this->world[5][37] = static::ALIVE;
+        $this->world[7][16]  = static::ALIVE;
+        $this->world[5][17]  = static::ALIVE;
+        $this->world[9][17]  = static::ALIVE;
+        $this->world[6][18]  = static::ALIVE;
+        $this->world[7][18]  = static::ALIVE;
+        $this->world[8][18]  = static::ALIVE;
+        $this->world[7][19]  = static::ALIVE;
+        $this->world[6][22]  = static::ALIVE;
+        $this->world[5][22]  = static::ALIVE;
+        $this->world[4][22]  = static::ALIVE;
+        $this->world[6][23]  = static::ALIVE;
+        $this->world[5][23]  = static::ALIVE;
+        $this->world[4][23]  = static::ALIVE;
+        $this->world[3][24]  = static::ALIVE;
+        $this->world[7][24]  = static::ALIVE;
+        $this->world[2][26]  = static::ALIVE;
+        $this->world[3][26]  = static::ALIVE;
+        $this->world[7][26]  = static::ALIVE;
+        $this->world[8][26]  = static::ALIVE;
+        $this->world[4][36]  = static::ALIVE;
+        $this->world[5][36]  = static::ALIVE;
+        $this->world[4][37]  = static::ALIVE;
+        $this->world[5][37]  = static::ALIVE;
     }
 
     public function initGlider()
@@ -165,11 +166,11 @@ class Conway
     }
 
     /**
-     * @ensures  \result: string('a', 'z', 40);
+     * @ensures  \result: regex('/[a-f0-9]{40}/');
      */
     public function computeHash()
     {
-        return sha1(serialize($this->world));
+        return sha1(serialize(array(0, 0, 0, 1, 0, 1, 0)));
     }
 
     public function computeNewState()
@@ -195,8 +196,6 @@ class Conway
     public function isDeadOrAlive($i, $j)
     {
         $cellAlives = 0;
-
-        $currentCellAlive = $this->world[$i][$j] === static::ALIVE;
 
         if ($this->isCellInWorld($i+1, $j+1) && $this->world[$i+1][$j+1] === static::ALIVE) {
             $cellAlives++;
@@ -233,7 +232,7 @@ class Conway
         if (3 === $cellAlives) {
             $survive = static::ALIVE;
         } elseif (2 === $cellAlives) {
-            $survive = ($currentCellAlive) ? static::ALIVE : static::DEAD;
+            $survive = ($this->world[$i][$j] === static::ALIVE) ? static::ALIVE : static::DEAD;
         } else {
             $survive = static::DEAD;
         }
