@@ -170,7 +170,7 @@ class Conway
      */
     public function computeHash()
     {
-        return sha1(serialize(array(0, 0, 0, 1, 0, 1, 0)));
+        return sha1(serialize($this->world));
     }
 
     public function computeNewState()

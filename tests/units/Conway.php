@@ -336,4 +336,41 @@ class Conway extends atoum\test
                 ->integer($conway->isDeadOrAlive(2, 2))->isEqualTo(0)
         ;
     }
+
+    public function testComputeHash()
+    {
+        $this->object($conway = new game)->isInstanceOf('\GameOfLife\Conway')
+            ->if()->array($conway->getWorld())->isEmpty()
+                ->object($conway->initEmptyWorld())->isInstanceOf('\GameOfLife\Conway')
+            ->then()->array($conway->getWorld())->isNotEmpty()
+            ->and()
+                ->object($conway->setX(3))->isInstanceOf('\GameOfLife\Conway')
+                ->object($conway->setY(3))->isInstanceOf('\GameOfLife\Conway')
+            ->if()
+                ->object($conway->initEmptyWorld())->isInstanceOf('\GameOfLife\Conway')
+            ->then()->array($conway->getWorld())->isEqualTo(
+                [
+                    [0, 0, 0],
+                    [0, 0, 0],
+                    [0, 0, 0]
+                ]
+            )->and()->string($conway->computeHash())->length->isEqualTo(40);
+        ;
+    }
+
+    public function testDisplayWorld()
+    {
+        $this->object($conway = new game)->isInstanceOf('\GameOfLife\Conway')
+            ->if()->array($conway->getWorld())->isEmpty()
+                ->object($conway->initEmptyWorld())->isInstanceOf('\GameOfLife\Conway')
+            ->then()->array($conway->getWorld())->isNotEmpty()
+            ->and()
+                ->object($conway->setX(3))->isInstanceOf('\GameOfLife\Conway')
+                ->object($conway->setY(3))->isInstanceOf('\GameOfLife\Conway')
+            ->if()
+                ->object($conway->initEmptyWorld())->isInstanceOf('\GameOfLife\Conway')
+            // @TODO Check error with Hoa\Console and Const STDIN during Unit tests.
+            //->output($conway->displayWorld())->isNotEmpty()
+        ;
+    }
 }
