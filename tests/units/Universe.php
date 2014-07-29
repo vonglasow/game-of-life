@@ -34,7 +34,7 @@ class Universe extends atoum\test
             ->exception(function () use ($universe) {
                 return $universe->createGliderGunWorld();
             })->hasCode(1)
-            ->hasMessage('Unable to generate Glider Gun world is too small, please use at least width: 15 and length: 30')
+            ->hasMessage('Unable to generate Glider Gun world is too small, please use at least width: 15 and length: 40')
         ;
     }
 

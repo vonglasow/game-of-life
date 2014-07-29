@@ -258,17 +258,16 @@ class Conway extends atoum\test
         $universe = new \Mock\GameOfLife\Universe;
 
         $this->object($conway = new game)->isInstanceOf('\GameOfLife\Conway')
-            ->if()->object($conway->setUniverse($universe)->getUniverse()->setWorld(
+            ->if($conway->setUniverse($universe)->getUniverse()->setWorld(
                     [
                         [0, 0, 0],
                         [1, 1, 1],
                         [0, 0, 0]
                     ]
                 )
-            )->isInstanceOf('\GameOfLife\Conway')
-            ->and()
-                ->object($conway->setX(3))->isInstanceOf('\GameOfLife\Conway')
-                ->object($conway->setY(3))->isInstanceOf('\GameOfLife\Conway')
+            )->and()
+                ->object($conway->getUniverse()->setLength(3))->isInstanceOf('\GameOfLife\Universe')
+                ->object($conway->getUniverse()->setWidth(3))->isInstanceOf('\GameOfLife\Universe')
             ->if()
                 ->integer($conway->isDeadOrAlive(0, 0))->isEqualTo(0)
                 ->integer($conway->isDeadOrAlive(0, 1))->isEqualTo(1)
