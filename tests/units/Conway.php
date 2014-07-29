@@ -285,7 +285,7 @@ class Conway extends atoum\test
                         [0, 0, 0]
                     ]
                 )
-            )->isInstanceOf('\GameOfLife\Conway')
+            )->isInstanceOf('\GameOfLife\Universe')
             ->if()
                 ->integer($conway->isDeadOrAlive(0, 0))->isEqualTo(1)
                 ->integer($conway->isDeadOrAlive(0, 1))->isEqualTo(1)
@@ -303,7 +303,7 @@ class Conway extends atoum\test
                         [0, 1, 0]
                     ]
                 )
-            )->isInstanceOf('\GameOfLife\Conway')
+            )->isInstanceOf('\GameOfLife\Universe')
             ->if()
                 ->integer($conway->isDeadOrAlive(0, 0))->isEqualTo(1)
                 ->integer($conway->isDeadOrAlive(0, 1))->isEqualTo(1)
