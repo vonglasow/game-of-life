@@ -144,7 +144,7 @@ class Universe
                 break;
             case static::VACANT:
             default:
-                $this->world = $this->createEmptyWorld();
+                $this->world = $this->createGliderGunWorld();
                 break;
         }
 
