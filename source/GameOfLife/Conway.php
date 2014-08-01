@@ -31,8 +31,8 @@ class Conway
     {
         $newWorld = $this->universe->createEmptyWorld();
 
-        for ($i=0; $i < $this->universe->getLength(); $i++) {
-            for ($j=0; $j < $this->universe->getWidth(); $j++) {
+        for ($j=0; $j < $this->universe->getLength(); $j++) {
+            for ($i=0; $i < $this->universe->getWidth(); $i++) {
                 $newWorld[$i][$j] = $this->isDeadOrAlive($i, $j);
             }
         }
@@ -44,7 +44,7 @@ class Conway
 
     public function isCellInWorld($i, $j)
     {
-        return ($i < $this->universe->getLength() && $j < $this->universe->getWidth() && $i >= 0 && $j >= 0);
+        return ($j < $this->universe->getLength() && $i < $this->universe->getWidth() && $j >= 0 && $i >= 0);
     }
 
     public function isDeadOrAlive($i, $j)
