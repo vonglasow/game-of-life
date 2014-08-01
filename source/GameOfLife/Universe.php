@@ -63,8 +63,8 @@ class Universe
     {
         $world = array();
 
-        for ($coordX=0; $coordX < $this->length; $coordX++) {
-            for ($coordY=0; $coordY < $this->width; $coordY++) {
+        for ($coordY=0; $coordY < $this->length; $coordY++) {
+            for ($coordX=0; $coordX < $this->width; $coordX++) {
                 $world[$coordX][$coordY] = static::DEAD;
             }
         }
@@ -76,8 +76,8 @@ class Universe
     {
         $world = array();
 
-        for ($coordX=0; $coordX < $this->length; $coordX++) {
-            for ($coordY=0; $coordY < $this->width; $coordY++) {
+        for ($coordY=0; $coordY < $this->length; $coordY++) {
+            for ($coordX=0; $coordX < $this->width; $coordX++) {
                 $world[$coordX][$coordY] = rand(static::DEAD, static::ALIVE);
             }
         }
@@ -144,7 +144,7 @@ class Universe
                 break;
             case static::VACANT:
             default:
-                $this->world = $this->createEmptyWorld();
+                $this->world = $this->createGliderGunWorld();
                 break;
         }
 
