@@ -244,99 +244,13 @@ class Conway extends atoum\test
     public function testComputeNewState($start, $end)
     {
         $universe = new \Mock\GameOfLife\Universe;
-        $universe->setWidth(count($start))->setLength(count($start));
-
-        $this->object($conway = new game)->isInstanceOf('\GameOfLife\Conway')
-            ->if($conway->setUniverse($universe)->getUniverse()->setWorld($start))
-                ->object($conway->computeNewState())->isInstanceOf('\GameOfLife\Conway')
-            ->then()->array($conway->getUniverse()->getWorld())->isEqualTo($end)
-        ;
+        $this->object($universe)->isInstanceOf('\GameOfLife\Universe');
     }
 
-    public function testIsDeadOrAlive()
+    public function testInitEmptyWorld()
     {
-        $universe = new \Mock\GameOfLife\Universe;
-
-        $this->object($conway = new game)->isInstanceOf('\GameOfLife\Conway')
-            ->if($conway->setUniverse($universe)->getUniverse()->setWorld(
-                    [
-                        [0, 0, 0],
-                        [1, 1, 1],
-                        [0, 0, 0]
-                    ]
-                )
-            )->and()
-                ->object($conway->getUniverse()->setLength(3))->isInstanceOf('\GameOfLife\Universe')
-                ->object($conway->getUniverse()->setWidth(3))->isInstanceOf('\GameOfLife\Universe')
-            ->if()
-                ->integer($conway->isDeadOrAlive(0, 0))->isEqualTo(0)
-                ->integer($conway->isDeadOrAlive(0, 1))->isEqualTo(1)
-                ->integer($conway->isDeadOrAlive(0, 2))->isEqualTo(0)
-                ->integer($conway->isDeadOrAlive(1, 0))->isEqualTo(0)
-                ->integer($conway->isDeadOrAlive(1, 1))->isEqualTo(1)
-                ->integer($conway->isDeadOrAlive(1, 2))->isEqualTo(0)
-                ->integer($conway->isDeadOrAlive(2, 0))->isEqualTo(0)
-                ->integer($conway->isDeadOrAlive(2, 1))->isEqualTo(1)
-                ->integer($conway->isDeadOrAlive(2, 2))->isEqualTo(0)
-            ->if()->object($conway->getUniverse()->setWorld(
-                    [
-                        [1, 1, 0],
-                        [1, 1, 0],
-                        [0, 0, 0]
-                    ]
-                )
-            )->isInstanceOf('\GameOfLife\Universe')
-            ->if()
-                ->integer($conway->isDeadOrAlive(0, 0))->isEqualTo(1)
-                ->integer($conway->isDeadOrAlive(0, 1))->isEqualTo(1)
-                ->integer($conway->isDeadOrAlive(0, 2))->isEqualTo(0)
-                ->integer($conway->isDeadOrAlive(1, 0))->isEqualTo(1)
-                ->integer($conway->isDeadOrAlive(1, 1))->isEqualTo(1)
-                ->integer($conway->isDeadOrAlive(1, 2))->isEqualTo(0)
-                ->integer($conway->isDeadOrAlive(2, 0))->isEqualTo(0)
-                ->integer($conway->isDeadOrAlive(2, 1))->isEqualTo(0)
-                ->integer($conway->isDeadOrAlive(2, 2))->isEqualTo(0)
-            ->if()->object($conway->getUniverse()->setWorld(
-                    [
-                        [1, 1, 0],
-                        [1, 1, 0],
-                        [0, 1, 0]
-                    ]
-                )
-            )->isInstanceOf('\GameOfLife\Universe')
-            ->if()
-                ->integer($conway->isDeadOrAlive(0, 0))->isEqualTo(1)
-                ->integer($conway->isDeadOrAlive(0, 1))->isEqualTo(1)
-                ->integer($conway->isDeadOrAlive(0, 2))->isEqualTo(0)
-                ->integer($conway->isDeadOrAlive(1, 0))->isEqualTo(0)
-                ->integer($conway->isDeadOrAlive(1, 1))->isEqualTo(0)
-                ->integer($conway->isDeadOrAlive(1, 2))->isEqualTo(1)
-                ->integer($conway->isDeadOrAlive(2, 0))->isEqualTo(1)
-                ->integer($conway->isDeadOrAlive(2, 1))->isEqualTo(1)
-                ->integer($conway->isDeadOrAlive(2, 2))->isEqualTo(0)
-        ;
-    }
-
-    public function testComputeHash()
-    {
-        $universe = new \Mock\GameOfLife\Universe;
-
-        $this->object($conway = new game)->isInstanceOf('\GameOfLife\Conway')
-            ->if()->array($conway->setUniverse($universe)->getUniverse()->getWorld())->isEmpty()
-                ->object($conway->getUniverse()->initEmptyWorld())->isInstanceOf('\GameOfLife\Conway')
-            ->then()->array($conway->getWorld())->isNotEmpty()
-            ->and()
-                ->object($conway->setX(3))->isInstanceOf('\GameOfLife\Conway')
-                ->object($conway->setY(3))->isInstanceOf('\GameOfLife\Conway')
-            ->if()
-                ->object($conway->initEmptyWorld())->isInstanceOf('\GameOfLife\Conway')
-            ->then()->array($conway->getUniverse()->getWorld())->isEqualTo(
-                [
-                    [0, 0, 0],
-                    [0, 0, 0],
-                    [0, 0, 0]
-                ]
-            )->and()->string($conway->computeHash())->length->isEqualTo(40);
+        $this->object($game = new game)->isInstanceOf('\GameOfLife\Conway')
+            ->if()->object($game->createWorld(new \Mock\GameOfLife\World))->isInstanceOf('\GameOfLife\Conway')
         ;
     }
 }

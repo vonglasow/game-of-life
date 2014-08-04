@@ -8,6 +8,12 @@ class Conway
 {
     protected $universe;
 
+    public function createWorld(\GameOfLife\World $world)
+    {
+        $world->create();
+        return $this;
+    }
+
     public function getUniverse()
     {
         return $this->universe;

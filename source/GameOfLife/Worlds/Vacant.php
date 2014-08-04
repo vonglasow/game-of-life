@@ -1,14 +1,9 @@
 <?php
 
-namespace GameOfLife;
+namespace GameOfLife\Worlds;
 
-class World implements \GameOfLife\Worlds\Planet
+class Vacant implements Planet
 {
-    const DEFAULT_LENGTH = 50;
-    const DEFAULT_HEIGHT = 50;
-
-    protected $length = self::DEFAULT_LENGTH;
-    protected $height = self::DEFAULT_HEIGHT;
     protected $planet;
 
     public function create()
@@ -24,10 +19,5 @@ class World implements \GameOfLife\Worlds\Planet
         );
 
         return $this;
-    }
-
-    public function getPlanet()
-    {
-        return $this->planet;
     }
 }
