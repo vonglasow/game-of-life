@@ -2,7 +2,7 @@
 
 namespace GameOfLife;
 
-class World implements \GameOfLife\Worlds\Planet
+class World
 {
     const DEFAULT_LENGTH = 50;
     const DEFAULT_HEIGHT = 50;
@@ -26,8 +26,9 @@ class World implements \GameOfLife\Worlds\Planet
         return $this;
     }
 
-    public function getPlanet()
+    public function writeOn($console)
     {
-        return $this->planet;
+        $console->write($this->planet);
+        return $this;
     }
 }
