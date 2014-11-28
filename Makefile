@@ -4,7 +4,7 @@ vendor:
 	$(COMPOSER) install
 test: vendor
 	@echo 'Generate Praspel tests';
-	vendor/bin/praspel generate -c GameOfLife\\Conway -r .
+	vendor/bin/praspel generate -n GameOfLife -r .
 	@echo 'Run all tests'
 	vendor/bin/atoum -d tests/units
 update:
