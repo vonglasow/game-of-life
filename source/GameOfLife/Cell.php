@@ -2,28 +2,14 @@
 
 namespace GameOfLife;
 
-class Cell
+final class Cell
 {
     private $state;
+    private $position;
 
-    public function evolve($automaton, $neighbours)
+    public function __construct(Position $position, State $state)
     {
-        $automaton->makeEvolve($this, $neighbours);
-
-        return $this;
-    }
-
-    public function live()
-    {
-        $this->state = new State\Alive;
-
-        return $this;
-    }
-
-    public function decease()
-    {
-        $this->state = new State\Dead;
-
-        return $this;
+        $this->position = $position;
+        $this->state    = $state;
     }
 }

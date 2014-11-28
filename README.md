@@ -58,3 +58,11 @@ To generate praspel tests
 ```sh
 ./vendor/bin/atoum -f tests/praspel/GameOfLife/GameOfLife/Conway.php
 ```
+
+Todo
+====
+Make evolve the cell regarding neighbours life with automaton
+Allow to use differents automaton if we want to implement other algorithm
+Use Hoa\Console to Display the result of evolution for each step in lifetime
+Allow to configure the universe by console options. (GliderGun Vacant Random…)
+
