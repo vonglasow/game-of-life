@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/vonglasow/game-of-life.svg)](https://travis-ci.org/vonglasow/game-of-life)
+
 Game Of Life
 ============
 
