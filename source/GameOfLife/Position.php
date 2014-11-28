@@ -18,3 +18,4 @@ final class Position
         return 'X: ' . $this->X . 'Y: ' . $this->Y;
     }
 }
+
