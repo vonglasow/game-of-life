@@ -2,7 +2,7 @@
 
 namespace GameOfLife;
 
-final class Position
+class Position
 {
     private $X;
     private $Y;

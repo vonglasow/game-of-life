@@ -2,7 +2,7 @@
 
 namespace GameOfLife;
 
-final class State
+class State
 {
     const ALIVE = 1;
     const DEAD  = 0;
