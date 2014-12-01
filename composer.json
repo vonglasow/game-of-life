@@ -13,11 +13,10 @@
         "hoa/router": "~2.0"
     },
     "require-dev": {
-        "atoum/atoum": "dev-edge",
-        "atoum/praspel-extension": "dev-master"
+        "atoum/atoum": "~1.0",
+        "atoum/praspel-extension": "~0.0"
     },
     "autoload": {
         "psr-0": {"GameOfLife\\": "source/"}
-    },
-    "minimum-stability": "dev"
+    }
 }
